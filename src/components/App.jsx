@@ -12,26 +12,30 @@ class App extends Component {
 
   render(){
     return(
-      <div>
-        <div> 
-          <h3>Goals</h3>
-          <AddGoal />
-          <GoalList />
-        </div>
-          <button 
-            className="btn btn-danger"
-            onClick={() => this.signOut()}
-          >
-          Sign Out
-          </button>
+      <div style={{margin: '5px'}}> 
+        <h3>Goal Coach</h3>
+        <AddGoal />
+        <hr />
+        <h4>Goals</h4>
+        <GoalList />
+        <hr />
+        <button 
+          className="btn btn-danger"
+          onClick={() => this.signOut()}
+        >
+        Sign Out
+        </button>
       </div>
     )
   }
 }
 
+//maps state to props
 function mapStateToProps(state){
-  console.log('state', state)
-  return {}
+  // console.log('state at map state', state)
+  return {
+    state
+  }
 }
 
 
