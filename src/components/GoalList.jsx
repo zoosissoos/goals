@@ -5,13 +5,13 @@ import { setGoals } from '../actions';
 import GoalItem from './GoalItem';
 
 class GoalList extends Component {
-
   componentDidMount(){
     goalRef.on('value', snap => {
       let goals = [];
       snap.forEach(goal=> {
         const { email, title } = goal.val();
-        goals.push({ email, title });
+        const serverKey = goal.key;
+        goals.push({ email, title, serverKey });
       })
       console.log('goals', goals);
       this.props.setGoals(goals);
