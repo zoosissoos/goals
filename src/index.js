@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-import { firebaseApp } from './firebase';
+import { base } from './firebase';
 import { logUser } from './actions';
 import reducer from './reducers';
 import App from './components/App';
@@ -12,7 +12,7 @@ import SignUp from './components/SignUp';
 
 const store = createStore(reducer);
 
-firebaseApp.auth().onAuthStateChanged(user => {
+base.auth().onAuthStateChanged(user => {
   if (user){
     // console.log('user has signed in our signed up', user)
     const { email } = user;

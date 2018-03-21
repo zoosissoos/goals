@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp } from '../firebase';
+import { base } from '../firebase';
 
 class SignUp extends Component {
   constructor(props){
@@ -17,7 +17,7 @@ class SignUp extends Component {
   signUp(){
     console.log('this state', this.state)
     const { email, password } = this.state;
-    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+    base.auth().createUserWithEmailAndPassword(email, password)
       .catch(error =>{
         this.setState({error})
       })

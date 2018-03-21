@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp } from '../firebase';
+import { base } from '../firebase';
 
 class SignIn extends Component {
   constructor(props){
@@ -17,7 +17,7 @@ class SignIn extends Component {
   signIn(){
     console.log('this state at SignIn', this.state)
     const { email, password } = this.state;
-    firebaseApp.auth().signInWithEmailAndPassword(email,password)
+    base.auth().signInWithEmailAndPassword(email,password)
       .catch(error => {
         this.setState({error})
       })
